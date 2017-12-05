@@ -37,9 +37,10 @@ public class Problem {
     
     public static Problem generateProblem(int difficulty){
         Random ann = new Random();
-        int num1 = ann.nextInt(difficulty);
-        int num2 = ann.nextInt(difficulty);
         Operator op = generateOperater();
+        int num1 = ann.nextInt(difficulty) + 1;
+        int num2 = ann.nextInt(difficulty) + 1;
+        if(op == Operator.DIVID) num1 = num1 * num2; // == can be used for enum comparisons
         return new Problem(num1, num2, op);
     }
     
