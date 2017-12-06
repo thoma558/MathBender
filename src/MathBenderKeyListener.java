@@ -19,12 +19,12 @@ public class MathBenderKeyListener implements KeyListener{
     
     @Override
     public void keyTyped(KeyEvent e) {
-        if(e.getKeyCode() == KeyEvent.VK_ENTER){
-            logicThread.interrupt(); //hopefully this hits during the 5000 ms sleep
-        }
-        if(e.getKeyChar() >= '0' && e.getKeyChar() <= '9'){
-            buffer = buffer + e.getKeyChar();
-        }
+//        if(e.getKeyCode() == KeyEvent.VK_ENTER){
+//            logicThread.interrupt(); //hopefully this hits during the 5000 ms sleep
+//        }
+//        if(e.getKeyChar() >= '0' && e.getKeyChar() <= '9'){
+//            buffer = buffer + e.getKeyChar();
+//        }
     }
     
     public String getBuffer(){
