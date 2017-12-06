@@ -44,7 +44,11 @@ public class MathBenderLogic extends Thread{
             }
         }
     }
-    
+
+    public void forceRepaint(){
+        applet.repaint();
+    }
+
     private void delay(long time){
         try{
             Thread.sleep(time);

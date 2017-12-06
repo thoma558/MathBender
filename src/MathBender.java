@@ -25,6 +25,7 @@ public class MathBender extends Applet{
         listener = new MathBenderKeyListener(logicThread);
         logicThread.setMBKeyListener(listener);
         isShutdown = false;
+        this.addKeyListener(listener);
         setFocusable(true);
         requestFocusInWindow();
         setVisible(true);
