@@ -35,5 +35,11 @@ public class GameCanvas extends Canvas{
     public void update(){
         this.repaint();
     }
-    
+
+    public Problem getCurrentProblem() {
+        return currentProblem;
+    }
+    public Status getStatus() {
+        return status;
+    }
 }
