@@ -7,12 +7,12 @@ import java.awt.event.KeyListener;
  *
  * @author bonnerj
  */
-public class MathBlenderKeyListener implements KeyListener{
+public class MathBenderKeyListener implements KeyListener{
     
     private MathBenderLogic logicThread;
     private String buffer;
     
-    public MathBlenderKeyListener(MathBenderLogic logicThread){
+    public MathBenderKeyListener(MathBenderLogic logicThread){
         this.logicThread = logicThread;
         buffer = "";
     }
@@ -39,7 +39,12 @@ public class MathBlenderKeyListener implements KeyListener{
     
     @Override
     public void keyPressed(KeyEvent e) {
-        
+        if(e.getKeyCode() == KeyEvent.VK_ENTER){
+            logicThread.interrupt(); //hopefully this hits during the 5000 ms sleep
+        }
+        if(e.getKeyChar() >= '0' && e.getKeyChar() <= '9'){
+            buffer = buffer + e.getKeyChar();
+        }
     }
 
     @Override

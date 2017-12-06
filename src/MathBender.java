@@ -14,7 +14,7 @@ public class MathBender extends Applet{
     private MathBenderLogic logicThread;
     private int difficulty;
     private boolean isShutdown;
-    private MathBlenderKeyListener listener;
+    private MathBenderKeyListener listener;
     private String username;
     
     public MathBender(){
@@ -22,7 +22,7 @@ public class MathBender extends Applet{
         score = 0;
         difficulty = 2; //initialy, goes up with time
         logicThread = new MathBenderLogic(this);
-        listener = new MathBlenderKeyListener(logicThread);
+        listener = new MathBenderKeyListener(logicThread);
         logicThread.setMBKeyListener(listener);
         isShutdown = false;
         

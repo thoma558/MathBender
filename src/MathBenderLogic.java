@@ -8,7 +8,7 @@ public class MathBenderLogic extends Thread{
     private MathBender applet;
     private boolean keepRunning;
     private int difficulty;
-    private MathBlenderKeyListener listener;
+    private MathBenderKeyListener listener;
     
     public MathBenderLogic(MathBender mb){
         this.applet = mb;
@@ -16,8 +16,8 @@ public class MathBenderLogic extends Thread{
         difficulty = 2;
     }
     
-    public void setMBKeyListener(MathBlenderKeyListener listener){
-        this.listener = new MathBlenderKeyListener(this);
+    public void setMBKeyListener(MathBenderKeyListener listener){
+        this.listener = new MathBenderKeyListener(this);
     }
     
     @Override
