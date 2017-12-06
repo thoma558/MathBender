@@ -1,6 +1,6 @@
 
 import java.applet.Applet;
-import java.awt.Graphics;
+import java.awt.*;
 
 
 /**
@@ -15,8 +15,10 @@ public class MathBender extends Applet{
     private int difficulty;
     private boolean isShutdown;
     private MathBlenderKeyListener listener;
+    private String username;
     
     public MathBender(){
+        username = this.getParameter("username");
         score = 0;
         difficulty = 2; //initialy, goes up with time
         logicThread = new MathBenderLogic(this);
@@ -46,6 +48,11 @@ public class MathBender extends Applet{
         isShutdown = true;
         //write score to database
     }
+
+    private void writeScoretoDB(){
+        String DBURL="";
+        String query = "INSERT INTO ";
+    }
     
     public void addScore(int amount){
         this.score = score + amount;
@@ -57,7 +64,7 @@ public class MathBender extends Applet{
     
     @Override
     public void paint(Graphics g) {
-        //g.setFont(Font.);
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
         if(isShutdown){
             g.drawString("Refresh the page to try again", 20, 20);
             return;

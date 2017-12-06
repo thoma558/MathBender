@@ -58,5 +58,8 @@ public class Problem {
             return Operator.MOD;
         }
     }
+    public String toString(){
+        return (num1+" "+operator.stringRep+" " + num2 + " = ");
+    }
     
 }
