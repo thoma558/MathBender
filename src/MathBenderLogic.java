@@ -29,7 +29,12 @@ public class MathBenderLogic extends Thread{
             applet.setProblem(p);
             applet.repaint();
             delay(5000);
-            int answer = Integer.decode(listener.getAndClearBuffer());
+            int answer;
+            try {
+                answer = Integer.decode(listener.getAndClearBuffer());
+            }catch(Exception e){
+                answer = -1000000;
+            }
             boolean result = p.checkAnswer(answer);
             if(!result){
                 keepRunning = false;

@@ -25,7 +25,9 @@ public class MathBender extends Applet{
         listener = new MathBenderKeyListener(logicThread);
         logicThread.setMBKeyListener(listener);
         isShutdown = false;
-        
+        setFocusable(true);
+        requestFocusInWindow();
+        setVisible(true);
     }
     
     @Override
@@ -50,7 +52,8 @@ public class MathBender extends Applet{
     }
 
     private void writeScoretoDB(){
-        String DBURL="";
+        DBConnector connector = new DBConnector();
+        connector.addScore(username, score);
         String query = "INSERT INTO ";
     }
     
@@ -60,6 +63,7 @@ public class MathBender extends Applet{
     
     public void gameLost(){
         shutdown();
+        repaint();
     }
     
     @Override
