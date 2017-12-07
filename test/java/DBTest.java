@@ -7,7 +7,7 @@ public class DBTest {
     @Test
     public void testConnection(){
         DBConnector db = new DBConnector();
-        db.addScore("Rushan", 3);
+        db.addScore("Test", 6);
 
     }
 }

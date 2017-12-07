@@ -18,7 +18,11 @@ public class MathBender extends Applet{
     private String username;
     
     public MathBender(){
-        username = "TestUser";//this.getParameter("username"); undo this
+        try{
+            username = this.getParameter("username");
+        }catch (NullPointerException e){
+            username = "Test_User";
+        }
         score = 0;
         difficulty = 2; //initialy, goes up with time
         logicThread = new MathBenderLogic(this);
@@ -29,11 +33,13 @@ public class MathBender extends Applet{
         setFocusable(true);
         requestFocusInWindow();
         setVisible(true);
+        setBackground(new Color(0, 255, 255));
     }
     
     @Override
     public void init(){
         this.setVisible(true);
+        this.setSize(new Dimension(800, 400));
         logicThread.start();
     }
     
@@ -55,7 +61,7 @@ public class MathBender extends Applet{
 
     private void writeScoretoDB(){
         DBConnector connector = new DBConnector();
-        connector.addScore(username, score);
+        //connector.addScore(username, score);
     }
     
     public void addScore(int amount){
@@ -69,14 +75,17 @@ public class MathBender extends Applet{
     
     @Override
     public void paint(Graphics g) {
-        g.setFont(new Font("TimesRoman", Font.PLAIN, 20));
+        int width = getWidth();
+        int height = getHeight();
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
         if(isShutdown){
-            g.drawString("Refresh the page to try again", 20, 20);
+            g.drawString("Final Score = " + score, 20,40);
+            g.drawString("Refresh the page to try again", 20, 80);
             return;
         }
         if(currentProblem == null) return;
-        g.drawString(currentProblem.toString() + listener.getBuffer(), 120, 120);
-        g.drawString("You have 5 seconds per question, Good Luck.                    Score: " + score, 20, 20);
+        g.drawString(currentProblem.toString() + listener.getBuffer(), 120, 180);
+        g.drawString("You have 5 seconds per question, Good Luck.                    Score: " + score, 40, 40);
     }
     
     
