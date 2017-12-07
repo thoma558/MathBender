@@ -5,12 +5,12 @@ import java.util.Date;
 
 public class DBConnector {
 
-    public static void main(String[] args){
+    /*public static void main(String[] args){
         DBConnector db = new DBConnector();
         //db.addScore("rushan", 1);
     }
+    */
 
-    // String url = "jdbc:mysql://mathbender.cpa845rkfsyh.us-east-2.rds.amazonaws.com:3306/";
     String url = "mathbender.cpa845rkfsyh.us-east-2.rds.amazonaws.com";
     String dbName = "mathbender";
     String username = "root";
@@ -47,7 +47,6 @@ public class DBConnector {
         String sql = String.format("INSERT INTO scores\n values (\'%s\', %d, \'%s\')", username, score, date);
         try {
             statement.executeUpdate(sql);
-            //rs=statement.executeQuery(sql);
         } catch (SQLException e) {
             e.printStackTrace();
         }

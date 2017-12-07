@@ -56,7 +56,6 @@ public class MathBender extends Applet{
     private void writeScoretoDB(){
         DBConnector connector = new DBConnector();
         connector.addScore(username, score);
-        String query = "INSERT INTO ";
     }
     
     public void addScore(int amount){
