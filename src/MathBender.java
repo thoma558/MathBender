@@ -61,7 +61,7 @@ public class MathBender extends Applet{
 
     private void writeScoretoDB(){
         DBConnector connector = new DBConnector();
-        //connector.addScore(username, score);
+        connector.addScore(username, score);
     }
     
     public void addScore(int amount){
@@ -77,7 +77,7 @@ public class MathBender extends Applet{
     public void paint(Graphics g) {
         int width = getWidth();
         int height = getHeight();
-        g.setFont(new Font("TimesRoman", Font.PLAIN, 30));
+        g.setFont(new Font("TimesRoman", Font.PLAIN, 50));
         if(isShutdown){
             g.drawString("Final Score = " + score, 20,40);
             g.drawString("Refresh the page to try again", 20, 80);

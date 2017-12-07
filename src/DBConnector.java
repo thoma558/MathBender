@@ -5,11 +5,11 @@ import java.util.Date;
 
 public class DBConnector {
 
-    /*public static void main(String[] args){
+    public static void main(String[] args){
         DBConnector db = new DBConnector();
-        //db.addScore("rushan", 1);
+        db.addScore("test", 1);
     }
-    */
+
 
     String url = "mathbender.cpa845rkfsyh.us-east-2.rds.amazonaws.com";
     String dbName = "mathbender";
