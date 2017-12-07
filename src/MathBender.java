@@ -32,13 +32,13 @@ public class MathBender extends Applet{
     }
     
     @Override
-    public void start(){
+    public void init(){
         this.setVisible(true);
         logicThread.start();
     }
     
     @Override
-    public void stop(){
+    public void destroy(){
         logicThread.exit();
         shutdown();
     }
@@ -49,6 +49,7 @@ public class MathBender extends Applet{
     
     private void shutdown(){
         isShutdown = true;
+        writeScoretoDB();
         //write score to database
     }
 

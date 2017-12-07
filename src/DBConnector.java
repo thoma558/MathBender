@@ -2,7 +2,7 @@ import java.sql.*;
 
 public class DBConnector {
 
-    String url = "";
+    String url = "mathbender.cpa845rkfsyh.us-east-2.rds.amazonaws.com";
     String username = "root";
     String password = "password";
 
@@ -23,6 +23,12 @@ public class DBConnector {
 
 
     public void addScore(String username, int score) {
-        String sql = "INSERT into";
+        String date="";
+        String sql = String.format("INSERT INTO scores\n values (\'%s\', %d, \'%s\')", username, score, date);
+        try {
+            rs=statement.executeQuery(sql);
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 }
