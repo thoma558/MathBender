@@ -17,7 +17,7 @@ public class MathBenderLogic extends Thread{
     }
     
     public void setMBKeyListener(MathBenderKeyListener listener){
-        this.listener = new MathBenderKeyListener(this);
+        this.listener = listener;
     }
     
     @Override
@@ -30,11 +30,13 @@ public class MathBenderLogic extends Thread{
             applet.repaint();
             delay(5000);
             int answer;
+            System.out.println("String answer: " + listener.getBuffer());
             try {
                 answer = Integer.decode(listener.getAndClearBuffer());
             }catch(Exception e){
                 answer = -1000000;
             }
+            System.out.println("Problem: " + p + " Answer: " + answer);
             boolean result = p.checkAnswer(answer);
             if(!result){
                 keepRunning = false;

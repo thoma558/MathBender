@@ -18,7 +18,7 @@ public class MathBender extends Applet{
     private String username;
     
     public MathBender(){
-        username = this.getParameter("username");
+        username = "TestUser";//this.getParameter("username"); undo this
         score = 0;
         difficulty = 2; //initialy, goes up with time
         logicThread = new MathBenderLogic(this);
@@ -75,6 +75,7 @@ public class MathBender extends Applet{
             g.drawString("Refresh the page to try again", 20, 20);
             return;
         }
+        if(currentProblem == null) return;
         g.drawString(currentProblem.toString() + listener.getBuffer(), 120, 120);
         g.drawString("You have 5 seconds per question, Good Luck.                    Score: " + score, 20, 20);
     }
